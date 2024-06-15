@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Index, Inicio
+{%  endblock %}
+
+{% block content %}
+       <h2>Contenido Html</h2>
+       <h4> Tu nombre es: {{ name }}</h4>
+       <h4> Tu edad es: {{ edad }}</h4>
+       {% if dinero <= 0%}
+       <p> Cantidad invalida</p>
+       {% elif dinero == 0 %}
+       <p> El numero debe ser positivo</p>
+       {% else %}
+       <p> el numero es positivo </p>
+       {% endif %}
+
+       <ul>
+        {% for empleado in empleados %}
+        <li>{{ empleado.nombre }} || {{ empleado.edad }} || {{empleado.departamento}}</li>
+        {% endfor %}
+       </ul>
+       <form action="/login" method="post">
+         <input type="text" placeholder="Name" name="name">
+         <button type="submit">Enviar</button>
+    </form>
+{%  endblock %}
